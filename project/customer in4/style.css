@@ -1,0 +1,49 @@
+.flight_container {
+    border: 1px solid rgb(141, 134, 134);
+    border-radius: 0px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.flight_container p {
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.flight_container p:last-child {
+    border-bottom: none;
+}
+
+.flight_container p:first-child {
+    font-weight: bold;
+}
+
+.flight_container p:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.flight_container p:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.flight_container .col p {
+    flex: 1;
+    padding: 10px;
+}
+
+/*  */
+
+.pas{
+    margin-top: 5px;
+    margin-right: 58px;
+}
+
+.user{
+    margin-right: 100px;
+}
+
+
