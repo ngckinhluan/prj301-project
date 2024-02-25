@@ -24,16 +24,13 @@
     font-size: 43px;
     margin-bottom: 0;
     letter-spacing: 2px;
-    margin-right: 600px;
+
 }
-
-
 
 .content h2 {
     color: #E83C38;
     font-size: 30px;
     margin-top: 10px;
-    margin-right: 600px;
 }
 
 .container .content {
@@ -45,10 +42,7 @@
     padding-top: 11.4rem;
 
     flex-direction: column;
-    
 }
-
-
 
 .container .logreg-box {
     position: absolute;
@@ -70,6 +64,7 @@
     background: transparent;
     backdrop-filter: blur(20px);
 }
+
 
 .logreg-box .form-box.login {
     transform: translateX(0);
