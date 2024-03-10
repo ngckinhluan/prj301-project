@@ -1,0 +1,140 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11/01/2022, 11:27:27 AM
+    Author     : DUNGHUYNH
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: url('./image/bg.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header img{
+    margin-left: 20px;
+    width: 200px;
+    height: 70px;
+}
+.home_bar{
+    margin-top: 10px;
+    height: 70px;
+    border-radius: 3px;
+    width: 770px;
+    display: flex;
+    justify-content: space-around;
+    font-size: larger;
+}
+.home_bar a{
+    display: inline-block;
+    padding: 12px;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    color: #fff;
+}
+.home_bar a:hover{
+    color: #e83c38;
+    transition: 0.2s ease;
+}
+.button{
+    color: #fff;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+}
+.button:hover{
+    color: #e83c38;
+}
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.body form{
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+.body h1{
+    font-size: 36px;
+    text-align: center;
+}
+.input_box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input_box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+.input_box input::placeholder{
+    color: #fff;    
+}
+.input_box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.remember-forgot label input{
+    accent-color: #fff;
+    margin-right: 3px;
+}
+.remember-forgot a{
+    color: #fff;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.body .btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
