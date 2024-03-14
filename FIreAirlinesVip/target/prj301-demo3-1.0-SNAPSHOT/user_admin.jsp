@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="prj301demo.Model.Users.UserDTO"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,21 +15,23 @@
             <img class="logo" src="./images/logo.png">
         </div>
         <div class="bar">
-            <a class="menu" href="">HOME</a>
-            <a class="menu" href="">USERS</a>
+            <a class="menu" href="adminhome?action=home">HOME</a>
+            <a class="menu" href="adminhome?action=users">USERS</a>
             <a class="menu" href="">FLIGHTS</a>
             <a class="menu" href="">BOOKING HISTORY</a>
-            <a href="" class="button">LOG OUT</a>
+            <a href="login?action=logout" class="button">LOG OUT</a>
         </div>
     </div>
-    <div class="searching">
-        <i class='bx bx-search-alt-2 bx-rotate-90' ></i>
-        <input type="search" name="search" class="search" placeholder="  By Name/Phone">
-        <input type="submit" name="find" class="find" value="Search">
-    </div>
+    
     <div class="info-tab">
+        <form action='' method="GET" class="searching">
+            <i class='bx bx-search-alt-2 bx-rotate-90' ></i>
+            <input type="text" name="keyword" value="<%=request.getParameter("keyword") != null ? request.getParameter("keyword") : ""%>" class="search" placeholder="  By Name/Phone">
+            <input type="submit" class="find" value=Search>
+        </form>
+        
         <table class="table">
-            <tr class="row-light">
+            <tr class="row-bold">
                 <th>ID</th>
                 <th>User Name</th>
                 <th>Phone</th>
@@ -36,60 +40,21 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <tr class="row-bold">
-                <th>001</th>
-                <th>Mr. MILO</th>
-                <th>09xxxxxx</th>
-                <th>fireairlight@gmail.com</th>
-                <th>miloflight1</th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
+            <% 
+                List <UserDTO> list = (List <UserDTO>) request.getAttribute("userlist");
+                for (UserDTO user : list) {
+                        pageContext.setAttribute("user", user);
+            %>
             <tr class="row-light">
-                <th>002</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>${user.id}</th>
+                <th>${user.name}</th>
+                <th>${user.phone}</th>
+                <th>${user.email}</th>
+                <th>${user.password}</th>
                 <th><a href="">Edit</a></th>
                 <th><i class='bx bxs-trash'></i></th>
             </tr>
-            <tr class="row-bold">
-                <th>003</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
-            <tr class="row-light">
-                <th>004</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
-            <tr class="row-bold">
-                <th>005</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
-            <tr class="row-light">
-                <th>006</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
+            <% } %>
         </table>
     </div>
     <div class="bot">

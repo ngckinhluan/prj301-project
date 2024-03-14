@@ -1,2 +1,1 @@
-<a href='StudentList'>Student List</a> | <a href='login'>Login</a>
-<a href='index'>Index</a> 
+<a href='FlightControllerAdmin'>Flight List</a> | <a href='login'>Login</a> | <a href='login?action=logout'>Logout</a> 

@@ -4,9 +4,33 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>prj301demo.Controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeControllerAdmin</servlet-name>
+        <servlet-class>prj301demo.Controller.HomeControllerAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserControllerAdmin</servlet-name>
+        <servlet-class>prj301demo.Controller.UserControllerAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FlightControllerAdmin</servlet-name>
+        <servlet-class>prj301demo.Controller.FlightControllerAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeControllerAdmin</servlet-name>
+        <url-pattern>/adminhome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserControllerAdmin</servlet-name>
+        <url-pattern>/UserControllerAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FlightControllerAdmin</servlet-name>
+        <url-pattern>/FlightControllerAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

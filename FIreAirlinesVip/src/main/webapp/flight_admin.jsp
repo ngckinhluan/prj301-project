@@ -1,3 +1,5 @@
+<%@page import="prj301demo.Model.Flights.FlightDTO"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,100 +19,54 @@
             <a class="menu" href="">USERS</a>
             <a class="menu" href="">FLIGHTS</a>
             <a class="menu" href="">BOOKING HISTORY</a>
-            <a href="" class="button">LOG OUT</a>
+            <a href="login?action=logout" class="button">LOG OUT</a>
         </div>
     </div>
-    <div class="searching">
+    <form action="" method="GET" class="searching">
         <i class='bx bx-search-alt-2 bx-rotate-90' ></i>
-        <input type="search" name="search" class="search" placeholder="  By Flight_ID">
-        <input type="submit" name="find" class="find" value="Search">
+        <input type="search" name="keyword" class="search" placeholder="  By Flight_ID">
+        <input type="submit" class="find" value="Search">
+    </form>
+    <div class='function' style="margin: 25px 0 0 105px">
+        <a href='FlightControllerAdmin' style="text-decoration: none; color: #e83c38; font-size: large">Flight List</a> | <a href='login' style="text-decoration: none; color: #e83c38; font-size: large">Login</a> | <a href='login?action=logout' style="text-decoration: none; color: #e83c38; font-size: large">Logout</a> 
     </div>
     <div class="info-tab">
         <table class="table">
             <tr class="row-light">
-                <th>Flight ID</th>
+                <th>ID</th>
+                <th>Flight Code</th>
+                <th>Flight Name</th>
                 <th>From</th>
                 <th>To</th>
-                <th>Date</th>
                 <th>Dep Time</th>
-                <th>Price</th>
+                <th>Arr Time</th>
                 <th>Seats</th>
                 <th>Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
+            <% 
+                List <FlightDTO> list = (List <FlightDTO>) request.getAttribute("flightlist");
+                for (FlightDTO flight : list) {
+                     pageContext.setAttribute("flight", flight);
+            %>
             <tr class="row-bold">
-                <th>F001</th>
-                <th>SGN</th>
-                <th>HNA</th>
-                <th>09/01/2024</th>
-                <th>19:30</th>
-                <th>800.00 VND</th>
-                <th><a href="">View</a></th>
+                <th>${flight.id}</th>
+                <th>${flight.flight_number}</th>
+                <th>${flight.flight_name}</th>
+                <th>${flight.departure_airport}</th>
+                <th>${flight.arrival_airport}</th>
+                <th>${flight.departure_time}</th>
+                <th>${flight.arrival_time}</th>
+                <th>${flight.total_seat}</th>
                 <th></th>
-                <th><a href="">Edit</a></th>
+                <th><a href="FlightControllerAdmin?action=details&id=${flight.id}">View</a></th>
                 <th><i class='bx bxs-trash'></i></th>
             </tr>
-            <tr class="row-light">
-                <th>F002</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">View</a></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
-            <tr class="row-bold">
-                <th>F002</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">View</a></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
-            <tr class="row-light">
-                <th>F002</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">View</a></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
-            <tr class="row-bold">
-                <th>F002</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">View</a></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
-            <tr class="row-light">
-                <th>F002</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><a href="">View</a></th>
-                <th></th>
-                <th><a href="">Edit</a></th>
-                <th><i class='bx bxs-trash'></i></th>
-            </tr>
+            <% 
+                }
+            %>
+
         </table>
     </div>
     <div class="bot">

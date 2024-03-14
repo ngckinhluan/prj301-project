@@ -9,7 +9,7 @@ package prj301demo.Model.Users;
  * @author DUNGHUYNH
  */
 public class UserDTO {
-    
+
     private int id;
     private String name;
     private String password; // Lưu ý: Trong thực tế, mật khẩu thường không được truyền dưới dạng DTO
@@ -17,19 +17,6 @@ public class UserDTO {
     private String full_name;
     private String phone;
     private String role;
-
-    public UserDTO() {
-    }
-
-    public UserDTO(int id, String name, String password, String email, String full_name, String phone, String role) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.full_name = full_name;
-        this.phone = phone;
-        this.role = role;
-    }
 
     public int getId() {
         return id;
@@ -86,9 +73,5 @@ public class UserDTO {
     public void setRole(String role) {
         this.role = role;
     }
-
-    
-  
-   
 
 }

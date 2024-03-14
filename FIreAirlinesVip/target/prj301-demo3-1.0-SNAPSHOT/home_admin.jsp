@@ -12,11 +12,11 @@
             <!-- <img class="logo" src="./images/logo.png"> -->
         </div>
         <div class="bar">
-            <a class="menu" href="">HOME</a>
-            <a class="menu" href="">USERS</a>
-            <a class="menu" href="">FLIGHTS</a>
+            <a class="menu" href="adminhome?action=home">HOME</a>
+            <a class="menu" href="UserControllerAdmin?action=users">USERS</a>
+            <a class="menu" href="FlightControllerAdmin?action=list">FLIGHTS</a>
             <a class="menu" href="">BOOKING HISTORY</a>
-            <a href="" class="button">LOG OUT</a>
+            <a href="login?action=logout" class="button">LOG OUT</a>
         </div>
     </div>
     <div class="body">
@@ -31,7 +31,7 @@
                     <label>Admin Email :${usersession.email}</label>
                 </div>
                 <div class="show_box_phone">
-                    <label>Admin Phone :${usersession.role}</label>
+                    <label>Admin Phone :${usersession.phone}</label>
                 </div>
             </div>
         </form>

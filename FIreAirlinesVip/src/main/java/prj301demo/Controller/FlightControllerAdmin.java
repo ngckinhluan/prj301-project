@@ -1,25 +1,27 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package prj301demo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import prj301demo.Model.Users.UserDAO;
-import prj301demo.Model.Users.UserDTO;
+import prj301demo.Model.Flights.FlightDAO;
+import prj301demo.Model.Flights.FlightDTO;
 
 /**
  *
- * @author DUNGHUYNH
+ * @author Lenovo
  */
-public class LoginController extends HttpServlet {
+public class FlightControllerAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,38 +34,48 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-                String email = request.getParameter("email");
-                String password = request.getParameter("password");
-                String action = request.getParameter("action");
-        
-        if (action == null || action.equals("login")) {
-            UserDAO dao = new UserDAO();
-            UserDTO user = dao.login(email, password);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String keyword = request.getParameter("keyword");
+            String action = request.getParameter("action");
             
             
-
-            if (user != null) {
-                HttpSession session = request.getSession(true);
-                session.setAttribute("usersession", user);
-                String role = user.getRole();
-                if (role.equals("admin")) {
-                    response.sendRedirect("home_admin.jsp"); 
-                } else {
-                   response.sendRedirect("index.jsp");
-                } 
-            } 
-            else {
-                request.setAttribute("error", "Username or password is error");
-                RequestDispatcher rd = request.getRequestDispatcher("./login.jsp");
+            FlightDAO flightdao = new FlightDAO(); 
+            
+            HttpSession session = request.getSession(false);
+            if(session == null || session.getAttribute("usersession")== null){
+            response.sendRedirect("login");
+            return;
+            }
+            
+            
+            if (keyword == null) keyword = "";
+            
+            if (action == null || action.equals("list")){  
+                FlightDAO dao = new FlightDAO();
+                List<FlightDTO> list = dao.flightlist(keyword);
+                request.setAttribute("flightlist", list);
+                request.getRequestDispatcher("/flight_admin.jsp").forward(request, response);
+                
+            }
+            
+            else if(action.equals("details")){
+                Integer id = null;
+                try {
+                    id = Integer.parseInt(request.getParameter("id"));
+                } catch (NumberFormatException e) {
+                    log("Parameter id has wrong format.");
+                }
+                FlightDTO flight = null;
+                if(id!=null){
+                    flight = flightdao.load(id);
+                }
+                
+                request.setAttribute("flight", flight);
+                RequestDispatcher rd = request.getRequestDispatcher("flight_admin_details.jsp");
                 rd.forward(request, response);
             }
-        } else if ( action != null && action.equals("logout")) {
-            HttpSession session = request.getSession(false);
-            if (session != null) session.invalidate();
-            RequestDispatcher rd = request.getRequestDispatcher("./login.jsp");
-            rd.forward(request, response);
-        }        
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -103,6 +115,6 @@ public class LoginController extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }// </editor-fold>f
 
 }
