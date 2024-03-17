@@ -20,21 +20,12 @@
         <div class="wrapper">
             <nav class="nav">
                 <div class="nav-logo">
-                    <p>LOGO</p>
+                    <img src="./images/logo.png" alt="">
                 </div>
                 <div class="nav-menu" id="navMenu">
-                    <ul>
-                        <li><a href="home" class="link active">Home</a></li>
-                    </ul>
+
                 </div>
-                <div class="nav-button">
-                    <button class="btn white-button" id="loginBtn" onclick="login()">
-                        Sign in
-                    </button>
-                    <button class="btn" id="registerBtn" onclick="register()">
-                        Sign up
-                    </button>
-                </div>
+                
                 <div class="nav-menu-btn">
                     <i id="navMenuBtn" class="bx bx-menu" onclick="myMenuFunction()"></i>
                 </div>
@@ -72,6 +63,7 @@
                                 <input type="checkbox" name="remember" id="login-check" ${cookie.remember != null ? 'checked' : ''}>
                                 <label for="login-check">Remember me</label>
                             </div>
+
                             <div class="two">
                                 <label><a href="forgot">Forgot password?</a></label>
                             </div>
@@ -133,13 +125,7 @@
                         <div class="input-box">
                             <input type="submit" class="submit" value="REGISTER"/>
                         </div>
-                        <div class="two-col">
-                            <div class="one">
-                            </div>
-                            <div class="two">
-                                <label><a href="#">Terms-Condition</a></label>
-                            </div>
-                        </div>
+
                     </form>
                 </div>
 
