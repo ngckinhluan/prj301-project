@@ -36,7 +36,6 @@
                             <th>From</th>
                             <th>To</th> 
                             <th>Arrival Time</th>
-                            <th>Price</th>
                             <th>Book Tickets</th>
                             <th>Number Tickets</th>
                         </tr>
@@ -52,7 +51,6 @@
                                     <td>${Flight.source}</td>
                                     <td>${Flight.destination}</td>
                                     <td>${Flight.arrivalTime}</td>
-                                    <td>PRICE</td>
                                     <th>
                                         <a href="#" onclick="book(${Flight.getId()})">Book Now</a>
                                     </th>

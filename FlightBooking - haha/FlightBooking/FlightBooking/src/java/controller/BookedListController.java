@@ -14,13 +14,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import javax.servlet.http.HttpSession;
+import model.Flight;
+import model.Ticket;
+import model.User;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name="BookDetailController", urlPatterns={"/bookdetail"})
-public class BookDetailController extends HttpServlet {
+@WebServlet(name="BookedListController", urlPatterns={"/booked"})
+public class BookedListController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,10 +44,10 @@ public class BookDetailController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet BookDetailController</title>");  
+            out.println("<title>Servlet BookedListController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet BookDetailController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet BookedListController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,20 +64,15 @@ public class BookDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        showUpdateFlightDetail(request, response);
+        HttpSession session = request.getSession(false);
+
+            if (session == null || session.getAttribute("user") == null) {
+                response.sendRedirect("home");
+                return;
+            }
+        listBookedTicket(request, response);
     } 
-    
-    // Show update Flight form (Empty method, provide the actual code here)
-    private void showUpdateFlightDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String numberTicket = request.getParameter("numberTicket");
-        request.setAttribute("Flight", new FlightDAO().getFlightById(id));
-        request.setAttribute("seatId", new TicketDAO().getTotalTicketsByFlightId(id));
-        request.setAttribute("numberTicket", numberTicket);
-        request.getRequestDispatcher("book-detail.jsp").forward(request, response);
-    }
-    
-    
+
     /** 
      * Handles the HTTP <code>POST</code> method.
      * @param request servlet request
@@ -82,6 +84,19 @@ public class BookDetailController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
+    }
+    
+    // List Flightes (Empty method, provide the actual code here)
+    private void listBookedTicket(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = (User) request.getSession().getAttribute("user");
+        request.setAttribute("bookedList", new TicketDAO().getBookedTicketsByUsername(user.getUsername()));
+        HashMap<Ticket,Flight> listBooked = new HashMap<>();
+        for (Ticket ticket : new TicketDAO().getBookedTicketsByUsername(user.getUsername())) {
+            listBooked.put(ticket, new FlightDAO().getFlightById(ticket.getFlightId()+""));
+        }
+        request.setAttribute("listBooked", listBooked);
+        request.getRequestDispatcher("bookedlist.jsp").forward(request, response);
+        
     }
 
     /** 

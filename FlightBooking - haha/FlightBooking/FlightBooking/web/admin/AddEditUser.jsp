@@ -78,8 +78,9 @@
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status" value="${user.status}">
-                            <option value="0">Inactive</option>
                             <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                            
                         </select>
                     </div>
 

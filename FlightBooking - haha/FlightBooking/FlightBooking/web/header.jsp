@@ -30,7 +30,7 @@
 
                         <a class="btn btn-outline-dark ms-3" href="profile">
                             <i class="bi-person me-1"></i>
-                            Profile
+                            Welcome, ${user.username}
                         </a>
                         
                         <a class="btn btn-outline-dark ms-3" href="log">
@@ -51,11 +51,11 @@
 </div>
 
 <!-- Header-->
-<header class="header_fluid py-5" style="background-image: url('');">
+<header class="bg-danger py-5" >
     <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-black">
+        <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Flight Airlines</h1>
-            <p class="lead fw-normal text-black-50 mb-0">Safe fight happy life</p>
+            <p class="lead fw-normal text-white-50 mb-0">Safe fight happy life</p>
         </div>
     </div>
 </header>

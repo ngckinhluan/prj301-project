@@ -33,7 +33,7 @@
                     <h2>Number of seats: <strong>${seatId + 1}</strong> </h2>
                     <h2>Passenger ID: <strong>${sessionScope.user.username}</strong> </h2>
                     <h2>Number ticket: <strong>${numberTicket}</strong> </h2>
-                    <h2>Price: </h2>
+                    
                     <div style="text-align: center; margin-top: 40px">
                         <a class="btn btn-outline-dark" href="submit?id=${Flight.id}&seatNumber=${seatId + 1}&number=${numberTicket}" style="margin-right: 50px">
                             <i class="bi-box-arrow-right me-1"></i>

@@ -31,27 +31,22 @@
                 <h1>User Profile Update</h1>
 
                 <form action="profile" method="post">
-
                     <input type="hidden" name="username" value="${user.username}">
-
                     <!-- Full Name -->
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
                         <input type="text" class="form-control" id="fullName" name="fullName" value="${user.fullName}">
                     </div>
-
                     <!-- Email -->
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email" value="${user.email}">
                     </div>
-
                     <!-- Date of Birth -->
                     <div class="form-group">
                         <label for="dob">Date of Birth</label>
                         <input type="date" class="form-control" id="dob" name="dob" value="${user.dob}">
                     </div>
-
                     <!-- Gender -->
                     <div class="form-group">
                         <label>Gender</label>
@@ -61,28 +56,18 @@
                             <option value="1" <c:if test="${user.gender eq 1}">selected</c:if>>Male</option>
                         </select>
                     </div>
-
                     <div style="display: flex; width: 100%">
                         <div style="width: 50%;">
-
                         </div>
                         <div style="width: 50%;">
-
                         </div>
                     </div>
-
                     <br>
-
-                    <button type="submit" class="btn btn-primary">Update Profile</button>
-                    
+                    <button type="submit" class="btn btn-danger">Update Profile</button>
                     <br><br>
-
                     <a href="ChangePass" class="btn btn-secondary">Change password</a>
                 </form>
-
             </div>
         </section>
-
     </body>
-
 </html>

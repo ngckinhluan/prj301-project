@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Date;
+import javax.servlet.http.HttpSession;
 import model.Ticket;
 
 /**
@@ -21,6 +22,12 @@ public class TicketController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
+        HttpSession session = request.getSession(false);
+
+            if (session == null || session.getAttribute("user") == null) {
+                response.sendRedirect("home");
+                return;
+            }
 
         if (action == null) {
             // Default action if 'action' parameter is not provided

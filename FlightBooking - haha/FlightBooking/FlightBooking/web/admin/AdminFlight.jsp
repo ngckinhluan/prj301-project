@@ -33,13 +33,7 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5">
 
-                <div class="row mb-2">
-                    <div class="col-10">
-                    </div>
-                    <div class="col-2">
-                        <a class="btn btn-danger" href="./AdminFlight?action=add">Add Flight</a>
-                    </div>
-                </div>
+                
 
                 <table class="table table-hover table-bordered border rounded" id="datatable">
                     <thead>
@@ -50,7 +44,6 @@
                             <th>Source</th>
                             <th>Destination</th> 
                             <th>Arrival Time</th>
-                            <th>PRICE</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -65,28 +58,28 @@
                                 <td>${Flight.source}</td>
                                 <td>${Flight.destination}</td>
                                 <td>${Flight.arrivalTime}</td>
-                                <td>PRICE</td>
                                 <th><a href="./AdminFlight?action=update&id=${Flight.id}">Edit</a></th>
                                 <th><a href="./AdminFlight?action=delete&id=${Flight.id}">Delete</a></th>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-
-
+                <div class="row mt-4">
+                    <div class="col-10">
+                    </div>
+                    <div class="col-2">
+                        <a class="btn btn-danger" href="./AdminFlight?action=add">Add Flight</a>
+                    </div>
+                </div>
             </div>
         </section>
-
     </body>
-
     <!-- Datatables JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-
     <script>
         $(document).ready(function () {
             $('#datatable').DataTable();
         });
     </script>
-
 </html>

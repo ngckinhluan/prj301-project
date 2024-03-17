@@ -42,7 +42,6 @@
                             <th>Flight ID</th>
                             <th>Seat Number</th>
                             <th>Booked date</th>
-                            <th>PRICE</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -56,7 +55,6 @@
                                 <td>${ticket.flightId}</td>
                                 <td>${ticket.seatNumber}</td>
                                 <td>${ticket.bookedDate}</td>
-                                <td>PRICE</td>
                                 <th><a href="./AdminTicket?action=update&id=${ticket.id}">Edit</a></th>
                                 <th><a href="./AdminTicket?action=delete&id=${ticket.id}">Delete</a></th>
                             </tr>

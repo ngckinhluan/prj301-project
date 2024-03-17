@@ -36,8 +36,6 @@
                             <th>Source</th>
                             <th>Destination</th>
                             <th>Arrival Time</th>
-                            <th>PRICE</th>
-                           
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -52,7 +50,6 @@
                                 <td>${booked.getValue().source}</td>
                                 <td>${booked.getValue().destination}</td>
                                 <td>${booked.getValue().arrivalTime}</td>
-                                <td>PRICE</td>
                                 <th><a href="./cancel?id=${booked.getKey().id}">Cancel</a></th>
                             </tr>
                         </c:forEach>
@@ -61,7 +58,6 @@
 
             </div>
         </section>
-
     </body>
 
     <!-- Datatables JS -->
