@@ -41,7 +41,7 @@
                             <th>ID</th>
                             <th>Seats</th>
                             <th>Departure Time</th>
-                            <th>Source</th>
+                            <th>Departure</th>
                             <th>Destination</th> 
                             <th>Arrival Time</th>
                             <th>Edit</th>

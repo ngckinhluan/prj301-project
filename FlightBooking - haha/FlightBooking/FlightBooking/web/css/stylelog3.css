@@ -35,7 +35,7 @@ body {
 }
 
 .nav-logo img {
-    width: 15%;
+    width: 18%;
     padding: 10px;
 
 }
@@ -59,6 +59,10 @@ body {
 link:hover, .active {
     border-bottom: 2px solid #fff;
 
+}
+
+.nav-button{
+    padding-right: 21px;
 }
 
 .nav-button .btn {
@@ -98,8 +102,8 @@ link:hover, .active {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 612px;
-    height: 800px;
+    width: 456px;
+    height: 555px;
     overflow: hidden;
     z-index: 2;
 }
@@ -125,10 +129,11 @@ link:hover, .active {
 
 .top span {
     color: #E83C38;
-    font-size: small;
+    font-size: large;
     padding: 10px 0;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .top span a {
@@ -141,7 +146,7 @@ header {
     color: #E83C38;
     text-align: center;
     font-size: 30px;
-    padding: 10px 0 30px 0;
+    padding: 10px 0 17px 0;
 
 }
 

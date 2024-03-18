@@ -84,11 +84,10 @@ public class ProfileController extends HttpServlet {
         String fullName = request.getParameter("fullName");
         String email = request.getParameter("email");
         String dob = request.getParameter("dob");
-        String img = request.getParameter("img");
         int gender = Integer.parseInt(request.getParameter("gender"));
 
         // Create a User object with the updated profile information
-        User updatedUser = new User(username, null, fullName, email, img, dob, gender, 0, 0);
+        User updatedUser = new User(username, null, fullName, email, dob, gender, 0, 0);
 
         // Update the user's profile in the database
         UserDAO userDAO = new UserDAO();

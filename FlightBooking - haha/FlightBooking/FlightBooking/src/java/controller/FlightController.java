@@ -88,7 +88,7 @@ public class FlightController extends HttpServlet {
 
     // Show Flight detail (Empty method, provide the actual code here)
     private void showFlightDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to show Flight detail here
+
     }
 
     // Show update Flight form (Empty method, provide the actual code here)

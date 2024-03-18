@@ -7,7 +7,6 @@ public class User {
     private String password;
     private String fullName;
     private String email;
-    private String img;
     private String dob;
     private int gender;
     private int role;
@@ -16,42 +15,41 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String fullName, String email, String img, String dob, int gender, int role) {
+    public User(String username, String password, String fullName, String email, String dob, int gender, int role) {
         this.username = username;
         this.password = password;
         this.fullName = fullName;
         this.email = email;
-        this.img = img;
         this.dob = dob;
         this.gender = gender;
         this.role = role;
     }
     
-    public User(String fullName, String email, String dob, int gender, String description, int status, String img) {
+    public User(String fullName, String email, String dob, int gender, String description, int status) {
         this.fullName = fullName;
         this.email = email;
         this.dob = dob;
         this.gender = gender;
         this.status = status;
-        this.img = img;
+        
     }
 
-    public User(String username, String fullName, String email, String dob, int gender, int status, String img) {
+    public User(String username, String fullName, String email, String dob, int gender, int status) {
         this.username = username;
         this.fullName = fullName;
         this.email = email;
         this.dob = dob;
         this.gender = gender;
         this.status = status;
-        this.img = img;
+       
     }
 
-    public User(String username, String password, String fullName, String email, String img, String dob, int gender, int role, int status) {
+    public User(String username, String password, String fullName, String email, String dob, int gender, int role, int status) {
         this.username = username;
         this.password = password;
         this.fullName = fullName;
         this.email = email;
-        this.img = img;
+      
         this.dob = dob;
         this.gender = gender;
         this.role = role;
@@ -74,13 +72,7 @@ public class User {
         this.status = status;
     }
     
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
+   
 
     public String getUsername() {
         return username;

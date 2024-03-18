@@ -24,10 +24,10 @@ public class TicketController extends HttpServlet {
         String action = request.getParameter("action");
         HttpSession session = request.getSession(false);
 
-            if (session == null || session.getAttribute("user") == null) {
-                response.sendRedirect("home");
-                return;
-            }
+        if (session == null || session.getAttribute("user") == null) {
+            response.sendRedirect("home");
+            return;
+        }
 
         if (action == null) {
             // Default action if 'action' parameter is not provided
@@ -81,12 +81,10 @@ public class TicketController extends HttpServlet {
 
     // Show add ticket form (Empty method, provide the actual code here)
     private void showAddTicketForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to display the add ticket form here
     }
 
     // Show ticket detail (Empty method, provide the actual code here)
     private void showTicketDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to show ticket detail here
     }
 
     // Show update ticket form (Empty method, provide the actual code here)
@@ -104,7 +102,6 @@ public class TicketController extends HttpServlet {
 
     // Add a ticket (Empty method, provide the actual code here)
     private void addTicket(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to add a ticket here
     }
 
     // Update a ticket (Empty method, provide the actual code here)
@@ -126,18 +123,23 @@ public class TicketController extends HttpServlet {
             }
         }
 
-        // Create a Ticket object and set its properties
-        Ticket ticket = new Ticket();
-        ticket.setId(id);
-        ticket.setUsername(username);
-        ticket.setFlightId(FlightId);
-        ticket.setSeatNumber(seatNumber);
-        ticket.setBookedDate(bookedDate);
+        if (seatNumber <= new TicketDAO().getTotalTicketsByFlightId(String.valueOf(FlightId))) {
 
-        if (new TicketDAO().updateTicket(ticket)) {
-            response.sendRedirect("AdminTicket");
+            // Create a Ticket object and set its properties
+            Ticket ticket = new Ticket();
+            ticket.setId(id);
+            ticket.setUsername(username);
+            ticket.setFlightId(FlightId);
+            ticket.setSeatNumber(seatNumber);
+            ticket.setBookedDate(bookedDate);
+
+            if (new TicketDAO().updateTicket(ticket)) {
+                response.sendRedirect("AdminTicket");
+            } else {
+                response.sendRedirect("AdminTicket?action=update&id=" + id + "&error");
+            }
         } else {
-            response.sendRedirect("AdminTicket?action=update&id=" + id + "&error");
+            response.sendRedirect("AdminTicket");
         }
     }
 

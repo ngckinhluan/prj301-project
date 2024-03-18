@@ -68,11 +68,6 @@
                                 <label for="arrivalTime" class="form-label">Arrival Time</label>
                                 <input type="time" class="form-control" id="arrivalTime" name="arrivalTime" value="${Flight.arrivalTime}" required>
                             </div>
-                            
-                            <div class="mb-3">
-                                <label for="price" class="form-label">Price</label>
-                                <input type="text" class="form-control" id="price" name="price" value="" required>
-                            </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>
 

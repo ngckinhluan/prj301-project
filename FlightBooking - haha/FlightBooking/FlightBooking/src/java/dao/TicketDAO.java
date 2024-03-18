@@ -14,6 +14,7 @@ public class TicketDAO extends DBContext {
     }
 
     public void createTicket(Ticket ticket) {
+     
         String query = "INSERT INTO ticket (username, flightId, seatNumber ) "
                 + "VALUES (?, ?, ?)";
         try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -182,9 +183,9 @@ public class TicketDAO extends DBContext {
 
     public int getTotalTicketsByFlightId(String FlightId) {
         int totalTickets = 0;
-        java.util.Date date = new java.util.Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String query = "SELECT COUNT(*) AS total FROM ticket WHERE flightId = ? and bookedDate = " + format.format(date).toString();
+//        java.util.Date date = new java.util.Date();
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String query = "SELECT COUNT(*) AS total FROM ticket WHERE flightId = ?  "; //  and bookedDate =  + format.format(date).toString(); 
         try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, FlightId);
 
@@ -198,6 +199,12 @@ public class TicketDAO extends DBContext {
         }
 
         return totalTickets;
+    }
+    
+    public static void main(String[] args) {
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(format.format(date).toString());
     }
 
 }

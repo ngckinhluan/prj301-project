@@ -36,8 +36,8 @@
                     <div class="item1">Arrive at</div>
                     <div class="item2">${Flight.arrivalTime}</div>
                     <div class="item1">Number of seats</div>
-                    <div class="item2">${seatId + 1}</div>
-                    <div class="item1">Passenger ID</div>
+                    <div class="item2">${numberTicket}</div>
+                    <div class="item1">Passenger Name</div>
                     <div class="item2">${user.fullName}</div>
                     <div class="item1">Number ticket</div>
                     <div class="item2">${numberTicket}</div>

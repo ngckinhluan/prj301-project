@@ -29,7 +29,7 @@
 
                         <a class="btn btn-outline-dark ms-3" href="profile">
                             <i class="bi-person me-1"></i>
-                            Welcome ${user.username}
+                            Welcome, ${user.username}
                         </a>
                         
                         <a class="btn btn-outline-dark ms-3" href="log">

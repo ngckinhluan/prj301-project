@@ -75,22 +75,17 @@ public class UserController extends HttpServlet {
 
     // Show add user form (Empty method, provide the actual code here)
     private void showAddForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to display the add user form here
-        // Example: request.getRequestDispatcher("add.jsp").forward(request, response);
+
     }
 
     // Show user detail (Empty method, provide the actual code here)
     private void showUserDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to show user detail here
-        // Example: request.getRequestDispatcher("detail.jsp").forward(request, response);
+
     }
 
     // Add a user (Empty method, provide the actual code here)
     private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to add a user here
-        // You should handle the form data and database operations.
-        // After adding the user, you may redirect to a success page.
-        // Example: response.sendRedirect("success.jsp");
+
     }
 
     // Delete a user (Empty method, provide the actual code here)
