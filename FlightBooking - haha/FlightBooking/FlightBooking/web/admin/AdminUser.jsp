@@ -31,7 +31,7 @@
 
         <!-- Section-->
         <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
+            <div class="container px-4 px-lg-5">
 
 
                 <table class="table table-hover table-bordered border rounded" id="datatable">

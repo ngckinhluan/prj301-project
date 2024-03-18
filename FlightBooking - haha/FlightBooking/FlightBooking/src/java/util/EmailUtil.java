@@ -21,9 +21,9 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtil {
 
     //Email: focuslearn927@gmail.com
-    final String from = "focuslearn927@gmail.com";
+    final String from = "linhnhse184014@fpt.edu.vn";
     //Pass: sedwroyckpunaubh
-    final String password = "sedwroyckpunaubh";
+    final String password = "gmxvhqaflpppxgss";
 
     //Send email from ... to ..., if type is signup then send sign up mail, type is forgotpass then send password reset mail
     public void sendEmail(String to, String type, String generatedValue) {
@@ -70,7 +70,7 @@ public class EmailUtil {
                         + "** This is an automated message -- please do not reply as you will not receive a response. **\n\n"
                         + "This message is in response to your request to reset your account password. Please click the link below and follow the instructions to change your password.\n\n"
                         + "Your password is: " + generatedValue + "\n\n"
-                        + "http://localhost:8080/CarBooking/login.jsp \n\n"
+                        + "http://localhost:8080/FlightBooking/login.jsp \n\n"
                         + "Thank you.\n\n"
                         + "FocusLearn.";
             } 
@@ -84,7 +84,7 @@ public class EmailUtil {
                         + "** This is an automated message -- please do not reply as you will not receive a response. **\n\n"
                         + "This message is in response to your request to signup. Please enter the following OTP, remember to not share this with anyone.\n\n"
                         + "Your OTP is: " + generatedValue + "\n\n"
-                        + "http://localhost:8080/CarBooking/login.jsp \n\n"
+                        + "http://localhost:8080/FlightBooking/login.jsp \n\n"
                         + "Thank you.\n\n"
                         + "FocusLearn.";
             }

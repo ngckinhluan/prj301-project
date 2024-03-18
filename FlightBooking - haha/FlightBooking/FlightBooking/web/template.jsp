@@ -75,6 +75,17 @@
 
     </body>
 
+    <!-- Footer -->
+    <footer class="pt-3 bg-danger">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-white text-end">
+                    <p>Hotline: +123456789</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
     <!-- Datatables JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

@@ -28,10 +28,17 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
 
-                <h1>User Profile Update</h1>
+                <h1>Profile</h1>
 
                 <form action="profile" method="post">
                     <input type="hidden" name="username" value="${user.username}">
+                    <div class="form-group">
+                        <label for="img">IMG URL</label>
+                        <input type="url" class="form-control" id="img" name="img" value="${user.img}" onchange="previewImage(this.value)" placeholder="Enter image URL">
+                    </div>
+                    <div id="imagePreview" class="mt-3"></div>
+
+
                     <!-- Full Name -->
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
@@ -70,4 +77,21 @@
             </div>
         </section>
     </body>
+
+    <script>
+        function previewImage(url) {
+            var imgPreview = document.getElementById('imagePreview');
+            imgPreview.innerHTML = ''; // Xóa nội dung cũ trước khi thêm hình ảnh mới
+
+            // Tạo một thẻ <img> mới
+            var img = document.createElement('img');
+            img.src = url;
+            img.alt = 'Preview Image';
+            img.style.maxWidth = '100%';
+            img.style.maxHeight = '200px';
+
+            // Thêm thẻ <img> vào div có id là 'imagePreview'
+            imgPreview.appendChild(img);
+        }
+    </script>
 </html>

@@ -167,13 +167,14 @@ public class UserDAO extends DBContext {
     }
 
     public void updateUserProfile(User user) {
-        String query = "UPDATE Users SET full_name = ?, email = ?, dob = ?, gender = ? WHERE username = ?";
+        String query = "UPDATE Users SET full_name = ?, email = ?, dob = ?, gender = ?, img = ? WHERE username = ?";
         try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, user.getFullName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getDob());
             preparedStatement.setInt(4, user.getGender());
             preparedStatement.setString(5, user.getUsername());
+            preparedStatement.setString(6, user.getImg());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
