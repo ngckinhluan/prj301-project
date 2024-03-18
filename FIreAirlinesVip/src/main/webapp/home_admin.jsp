@@ -25,7 +25,7 @@
             <h1>Admin Information</h1>
             <div class="show">
                 <div class="show_box">
-                    <label>Admin Name :     ${usersession.name}</label>
+                    <label>Admin Name :${usersession.name}</label>
                 </div>
                 <div class="show_box">
                     <label>Admin Email :${usersession.email}</label>
