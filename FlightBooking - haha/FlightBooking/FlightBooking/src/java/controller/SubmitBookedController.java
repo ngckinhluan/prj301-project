@@ -73,11 +73,18 @@ public class SubmitBookedController extends HttpServlet {
         int FlightId = Integer.parseInt(request.getParameter("id"));
         int number = Integer.parseInt(request.getParameter("number"));
         int seatId = Integer.parseInt(request.getParameter("seatNumber"));
+<<<<<<< HEAD
         
         if (number <= (new TicketDAO().getTotalTicketsByFlightId1(FlightId)- new TicketDAO().getseatNumber(FlightId))) {
             Ticket ticket = new Ticket(seatId, user.getUsername(), FlightId, number, new Date(), number);
             new TicketDAO().editTicket(ticket);
             request.getRequestDispatcher("booked").forward(request, response);
+=======
+        if (number <= new TicketDAO().getTotalTicketsByFlightId(String.valueOf(FlightId))) {
+            Ticket ticket = new Ticket(seatId, user.getUsername(), FlightId, number, new Date(), number);
+            new TicketDAO().editTicket(ticket);
+            response.sendRedirect("booked");
+>>>>>>> ee1d70c2e747e3861bd7c895cd98a0bc13923716
         } else {
  response.sendRedirect("home");
         }

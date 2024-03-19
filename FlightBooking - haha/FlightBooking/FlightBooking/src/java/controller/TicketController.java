@@ -124,7 +124,11 @@ public class TicketController extends HttpServlet {
             }
         }
 
+<<<<<<< HEAD
         if (seatNumber <= new TicketDAO().getTotalTicketsByFlightId1(FlightId)-new TicketDAO().getseatNumber(FlightId)) {
+=======
+        if (seatNumber <= new TicketDAO().getTotalTicketsByFlightId(String.valueOf(FlightId))) {
+>>>>>>> ee1d70c2e747e3861bd7c895cd98a0bc13923716
 
             // Create a Ticket object and set its properties
             Ticket ticket = new Ticket();
