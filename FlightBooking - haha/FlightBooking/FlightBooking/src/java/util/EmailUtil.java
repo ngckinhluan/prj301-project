@@ -72,7 +72,7 @@ public class EmailUtil {
                         + "Your password is: " + generatedValue + "\n\n"
                         + "http://localhost:8080/FlightBooking/login.jsp \n\n"
                         + "Thank you.\n\n"
-                        + "FocusLearn.";
+                        + "FireAirlines.";
             } 
             else if (type.equals("signup")) {
                 //GenOTP
@@ -86,7 +86,21 @@ public class EmailUtil {
                         + "Your OTP is: " + generatedValue + "\n\n"
                         + "http://localhost:8080/FlightBooking/login.jsp \n\n"
                         + "Thank you.\n\n"
-                        + "FocusLearn.";
+                        + "FireAirlines.";
+            }
+            else if (type.equals("booking")) {
+                //GenOTP
+                //generatedValue = passUtil.generateOTP();
+                //Subject
+                msg.setSubject("Request signup ");
+                //Content
+                emailContent = "Hello user,\n\n"
+                        + "** This is an automated message -- please do not reply as you will not receive a response. **\n\n"
+                        + "This message is in response to your request to signup. Please enter the following OTP, remember to not share this with anyone.\n\n"
+                        + "Your OTP is: " + generatedValue + "\n\n"
+                        + "http://localhost:8080/FlightBooking/login.jsp \n\n"
+                        + "Thank you.\n\n"
+                        + "FireAirlines.";
             }
             msg.setText(emailContent, "UTF-8");
             //Send Email

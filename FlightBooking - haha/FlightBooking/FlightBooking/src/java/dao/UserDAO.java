@@ -35,7 +35,6 @@ public class UserDAO extends DBContext {
                 user.setFullName(rs.getString("full_name"));
                 user.setGender(rs.getInt("gender"));
                 user.setDob(rs.getString("dob"));
-                user.setImg(rs.getString("img"));
                 user.setEmail(rs.getString("email"));
                 user.setRole(rs.getInt("role"));
                 user.setStatus(rs.getInt("status"));
@@ -122,13 +121,12 @@ public class UserDAO extends DBContext {
                 String password = resultSet.getString("password");
                 String fullName = resultSet.getString("full_name");
                 String email = resultSet.getString("email");
-                String img = resultSet.getString("img");
                 String dob = resultSet.getString("dob");
                 int gender = resultSet.getInt("gender");
                 int role = resultSet.getInt("role");
                 int status = resultSet.getInt("status");
 
-                User user = new User(username, password, fullName, email, img, dob, gender, role, status);
+                User user = new User(username, password, fullName, email, dob, gender, role, status);
                 users.add(user);
             }
         } catch (SQLException ex) {
@@ -138,17 +136,17 @@ public class UserDAO extends DBContext {
     }
 
     public void updateUser(User user) {
-        String query = "UPDATE Users SET password = ?, full_name = ?, email = ?, img = ?, dob = ?, gender = ?, role = ?, status = ? WHERE username = ?";
+        String query = "UPDATE Users SET password = ?, full_name = ?, email = ?, dob = ?, gender = ?, role = ?, status = ? WHERE username = ?";
         try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, user.getPassword());
             preparedStatement.setString(2, user.getFullName());
             preparedStatement.setString(3, user.getEmail());
-            preparedStatement.setString(4, user.getImg());
-            preparedStatement.setString(5, user.getDob());
-            preparedStatement.setInt(6, user.getGender());
-            preparedStatement.setInt(7, user.getRole());
-            preparedStatement.setInt(8, user.getStatus());
-            preparedStatement.setString(9, user.getUsername());
+           
+            preparedStatement.setString(4, user.getDob());
+            preparedStatement.setInt(5, user.getGender());
+            preparedStatement.setInt(6, user.getRole());
+            preparedStatement.setInt(7, user.getStatus());
+            preparedStatement.setString(8, user.getUsername());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -167,14 +165,14 @@ public class UserDAO extends DBContext {
     }
 
     public void updateUserProfile(User user) {
-        String query = "UPDATE Users SET full_name = ?, email = ?, dob = ?, gender = ?, img = ? WHERE username = ?";
+        String query = "UPDATE Users SET full_name = ?, email = ?, dob = ?, gender = ? WHERE username = ?";
         try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, user.getFullName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getDob());
             preparedStatement.setInt(4, user.getGender());
             preparedStatement.setString(5, user.getUsername());
-            preparedStatement.setString(6, user.getImg());
+       
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

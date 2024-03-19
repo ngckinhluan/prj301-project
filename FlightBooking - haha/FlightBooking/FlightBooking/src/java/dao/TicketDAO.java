@@ -14,6 +14,7 @@ public class TicketDAO extends DBContext {
     }
 
     public void createTicket(Ticket ticket) {
+     
         String query = "INSERT INTO ticket (username, flightId, seatNumber ) "
                 + "VALUES (?, ?, ?)";
         try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -69,7 +70,7 @@ public class TicketDAO extends DBContext {
 
     public List<Ticket> getAllTickets() {
         List<Ticket> tickets = new ArrayList<>();
-        String query = "SELECT * FROM ticket";
+        String query = "select * from ticket join Flight on ticket.FlightId = flight.id";
         try ( PreparedStatement preparedStatement = connection.prepareStatement(query);  ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -77,6 +78,8 @@ public class TicketDAO extends DBContext {
                 int FlightId = resultSet.getInt("flightId");
                 int seatNumber = resultSet.getInt("seatNumber");
                 Date bookedDate = resultSet.getDate("bookedDate"); // Retrieve the booking date
+                int price = resultSet.getInt("price");
+
 
                 Ticket ticket = new Ticket();
                 ticket.setId(id);
@@ -84,7 +87,8 @@ public class TicketDAO extends DBContext {
                 ticket.setFlightId(FlightId);
                 ticket.setSeatNumber(seatNumber);
                 ticket.setBookedDate(bookedDate); // Set the booking date
-
+                ticket.setPrice(price);
+                
                 tickets.add(ticket);
             }
         } catch (SQLException ex) {
@@ -93,6 +97,8 @@ public class TicketDAO extends DBContext {
         return tickets;
     }
 
+    
+    
     public Ticket getTicketById(int ticketId) {
         Ticket ticket = null;
         String query = "SELECT * FROM ticket WHERE id = ?";
@@ -105,6 +111,7 @@ public class TicketDAO extends DBContext {
                     int FlightId = resultSet.getInt("flightId");
                     int seatNumber = resultSet.getInt("seatNumber");
                     Date bookedDate = resultSet.getDate("bookedDate"); // Retrieve the booking date
+                 
 
                     ticket = new Ticket();
                     ticket.setId(id);
@@ -112,6 +119,7 @@ public class TicketDAO extends DBContext {
                     ticket.setFlightId(FlightId);
                     ticket.setSeatNumber(seatNumber);
                     ticket.setBookedDate(bookedDate); // Set the booking date
+                   
                 }
             }
         } catch (SQLException ex) {
@@ -179,14 +187,59 @@ public class TicketDAO extends DBContext {
         }
         return tickets;
     }
-
-    public int getTotalTicketsByFlightId(String FlightId) {
-        int totalTickets = 0;
-        java.util.Date date = new java.util.Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String query = "SELECT COUNT(*) AS total FROM ticket WHERE flightId = ? and bookedDate = " + format.format(date).toString();
+    
+    public int getseatNumber(int FlightId) {
+        int seatbooked = 0;
+//        java.util.Date date = new java.util.Date();
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String query = "select sum(seatNumber) as TotalSeatNumber from ticket where FlightId = ?  "; //  and bookedDate =  + format.format(date).toString(); 
         try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, FlightId);
+            preparedStatement.setInt(1, FlightId);
+
+            try ( ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    seatbooked = resultSet.getInt("TotalSeatNumber");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return seatbooked;
+    }
+    
+    
+
+    public int getTotalTicketsByFlightId1(int FlightId) {
+        int ticket = 0;
+//        java.util.Date date = new java.util.Date();
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String query = "sELECT seats FROM Flight WHERE id= ?  "; //  and bookedDate =  + format.format(date).toString(); 
+        try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, FlightId);
+
+            try ( ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    ticket = resultSet.getInt("seats");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return ticket;
+    }
+    
+    
+    
+    
+    public int getTotalTicketsByFlightId(int FlightId) {
+        int totalTickets = 0;
+//        java.util.Date date = new java.util.Date();
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String query = "SELECT COUNT(*) AS total FROM ticket WHERE flightId = ?  "; //  and bookedDate =  + format.format(date).toString(); 
+        try ( PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, FlightId);
 
             try ( ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
@@ -198,6 +251,12 @@ public class TicketDAO extends DBContext {
         }
 
         return totalTickets;
+    }
+    
+    public static void main(String[] args) {
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(format.format(date).toString());
     }
 
 }

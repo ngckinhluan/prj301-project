@@ -37,11 +37,11 @@
                 <table class="table table-hover table-bordered border rounded" id="datatable">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                           <th>Flight ID</th>
                             <th>Username</th>
-                            <th>Flight ID</th>
                             <th>Seat Number</th>
                             <th>Booked date</th>
+                            <th>Price</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -50,11 +50,12 @@
                     <tbody>
                         <c:forEach items="${ticketList}" var="ticket">
                             <tr>
-                                <td>${ticket.id}</td>
-                                <td>${ticket.username}</td>
                                 <td>${ticket.flightId}</td>
+                                <td>${ticket.username}</td>
                                 <td>${ticket.seatNumber}</td>
                                 <td>${ticket.bookedDate}</td>
+                                <td>${ticket.price*ticket.seatNumber} $</td>
+                                
                                 <th><a href="./AdminTicket?action=update&id=${ticket.id}">Edit</a></th>
                                 <th><a href="./AdminTicket?action=delete&id=${ticket.id}">Delete</a></th>
                             </tr>

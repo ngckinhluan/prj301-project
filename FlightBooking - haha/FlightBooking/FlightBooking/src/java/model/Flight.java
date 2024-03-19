@@ -7,26 +7,41 @@ public class Flight {
     private String source;
     private String destination;
     private String arrivalTime;
+    private int price;
 
     public Flight() {
         // Default constructor
     }
     
-    public Flight(int id, int seats, String departureTime, String source, String destination, String arrivalTime) {
+    
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
+    
+    
+    public Flight(int id, int seats, String departureTime, String source, String destination, String arrivalTime, int price) {
         this.id = id;
         this.seats = seats;
         this.departureTime = departureTime;
         this.source = source;
         this.destination = destination;
         this.arrivalTime = arrivalTime;
+        this.price = price;
     }
 
-    public Flight(int seats, String departureTime, String source, String destination, String arrivalTime) {
+    public Flight(int seats, String departureTime, String source, String destination, String arrivalTime, int price) {
         this.seats = seats;
         this.departureTime = departureTime;
         this.source = source;
         this.destination = destination;
         this.arrivalTime = arrivalTime;
+        this.price = price;
     }
 
     // Getters and setters for all fields

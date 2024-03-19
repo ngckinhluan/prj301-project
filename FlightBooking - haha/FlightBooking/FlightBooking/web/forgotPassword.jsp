@@ -19,7 +19,7 @@
         <div class="wrapper">
             <nav class="nav">
                 <div class="nav-logo">
-                    <p>LOGO</p>
+                   <img src="./images/logo.png" alt="">
                 </div>
                 <div class="nav-menu" id="navMenu">
                     <ul>
@@ -30,9 +30,7 @@
                     <button class="btn white-button" id="loginBtn" onclick="navigateURL()">
                         Sign in
                     </button>
-                    <button class="btn" id="registerBtn"  onclick="navigateURL()">
-                        Sign up
-                    </button>
+                    
                 </div>
                 <div class="nav-menu-btn">
                     <i id="navMenuBtn" class="bx bx-menu" onclick="myMenuFunction()"></i>
@@ -47,7 +45,7 @@
                         <div class="forgot-container" id="forgot">
                             <form action="forgot" method="post">
                                 <div class="top">
-                                    <header>Reset your password</header>
+                                    <header><h3>Reset your password</h3></header>
                                     <span>Enter your email address you signed up with. We'll email you a temp password and link to change your password</span>
                                 </div>
                                 <div class="top" style="color: red">

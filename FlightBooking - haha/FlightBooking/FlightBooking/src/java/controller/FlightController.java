@@ -88,12 +88,12 @@ public class FlightController extends HttpServlet {
 
     // Show Flight detail (Empty method, provide the actual code here)
     private void showFlightDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to show Flight detail here
+
     }
 
     // Show update Flight form (Empty method, provide the actual code here)
     private void showUpdateFlightForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
+       int id = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("Flight", new FlightDAO().getFlightById(id));
         request.setAttribute("action", "update");
         

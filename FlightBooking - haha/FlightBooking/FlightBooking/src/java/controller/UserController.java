@@ -38,7 +38,7 @@ public class UserController extends HttpServlet {
                 showUserDetail(request, response);
                 break;
             case "delete":
-                deleteUser(request, response);
+                banUser(request, response);
                 break;
             case "update":
                 showUpdateForm(request, response);
@@ -64,7 +64,7 @@ public class UserController extends HttpServlet {
         }
     }
 
-    // List users (Empty method, provide the actual code here)
+    // List users 
     private void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setAttribute("userList", new UserDAO().getAllUsers());
@@ -73,28 +73,23 @@ public class UserController extends HttpServlet {
 
     }
 
-    // Show add user form (Empty method, provide the actual code here)
+    // Show add user form 
     private void showAddForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to display the add user form here
-        // Example: request.getRequestDispatcher("add.jsp").forward(request, response);
+
     }
 
-    // Show user detail (Empty method, provide the actual code here)
+    // Show user detail 
     private void showUserDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to show user detail here
-        // Example: request.getRequestDispatcher("detail.jsp").forward(request, response);
+
     }
 
-    // Add a user (Empty method, provide the actual code here)
+    // Add a user 
     private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement your code to add a user here
-        // You should handle the form data and database operations.
-        // After adding the user, you may redirect to a success page.
-        // Example: response.sendRedirect("success.jsp");
+
     }
 
-    // Delete a user (Empty method, provide the actual code here)
-    private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // Delete a user 
+    private void banUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         int status = Integer.parseInt(request.getParameter("status"));
         

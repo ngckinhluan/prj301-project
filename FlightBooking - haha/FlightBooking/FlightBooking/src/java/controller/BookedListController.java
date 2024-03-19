@@ -92,7 +92,7 @@ public class BookedListController extends HttpServlet {
         request.setAttribute("bookedList", new TicketDAO().getBookedTicketsByUsername(user.getUsername()));
         HashMap<Ticket,Flight> listBooked = new HashMap<>();
         for (Ticket ticket : new TicketDAO().getBookedTicketsByUsername(user.getUsername())) {
-            listBooked.put(ticket, new FlightDAO().getFlightById(ticket.getFlightId()+""));
+            listBooked.put(ticket, new FlightDAO().getFlightById(ticket.getFlightId()));
         }
         request.setAttribute("listBooked", listBooked);
         request.getRequestDispatcher("bookedlist.jsp").forward(request, response);

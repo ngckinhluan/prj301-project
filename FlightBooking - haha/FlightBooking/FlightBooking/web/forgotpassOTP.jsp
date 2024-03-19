@@ -19,7 +19,7 @@
         <div class="wrapper">
             <nav class="nav">
                 <div class="nav-logo">
-                    <p>LOGO</p>
+                    <img src="./images/logo.png" alt="">
                 </div>
                 <div class="nav-menu" id="navMenu">
                     <ul>
@@ -30,9 +30,7 @@
                     <button class="btn white-button" id="loginBtn" onclick="navigateURL()">
                         Sign in
                     </button>
-                    <button class="btn" id="registerBtn"  onclick="navigateURL()">
-                        Sign up
-                    </button>
+                    
                 </div>
                 <div class="nav-menu-btn">
                     <i id="navMenuBtn" class="bx bx-menu" onclick="myMenuFunction()"></i>

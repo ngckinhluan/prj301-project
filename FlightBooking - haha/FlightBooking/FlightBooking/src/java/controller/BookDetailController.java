@@ -68,7 +68,7 @@ public class BookDetailController extends HttpServlet {
     
     // Show update Flight form (Empty method, provide the actual code here)
     private void showUpdateFlightDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
+        int id = Integer.parseInt(request.getParameter("id"));
         String numberTicket = request.getParameter("numberTicket");
         request.setAttribute("Flight", new FlightDAO().getFlightById(id));
         request.setAttribute("seatId", new TicketDAO().getTotalTicketsByFlightId(id));

@@ -9,17 +9,9 @@ public class Ticket {
     private int seatNumber;
     private Date bookedDate; // Add the bookedDate field
     private int numberSeat;
+    private int price;
 
     public Ticket() {
-        // Default constructor
-    }
-
-    public Ticket(int id, String username, int FlightId, int seatNumber, Date bookedDate) {
-        this.id = id;
-        this.username = username;
-        this.FlightId = FlightId;
-        this.seatNumber = seatNumber;
-        this.bookedDate = bookedDate;
     }
 
     public Ticket(int id, String username, int FlightId, int seatNumber, Date bookedDate, int numberSeat) {
@@ -31,25 +23,15 @@ public class Ticket {
         this.numberSeat = numberSeat;
     }
     
-    
 
-    // Getters and setters for the new field
-    public Date getBookedDate() {
-        return bookedDate;
-    }
-
-    public int getNumberSeat() {
-        return numberSeat;
-    }
-
-    public void setNumberSeat(int numberSeat) {
-        this.numberSeat = numberSeat;
-    }
-    
-    
-
-    public void setBookedDate(Date bookedDate) {
+    public Ticket(int id, String username, int FlightId, int seatNumber, Date bookedDate, int numberSeat, int price) {
+        this.id = id;
+        this.username = username;
+        this.FlightId = FlightId;
+        this.seatNumber = seatNumber;
         this.bookedDate = bookedDate;
+        this.numberSeat = numberSeat;
+        this.price = price;
     }
 
     public int getId() {
@@ -83,4 +65,30 @@ public class Ticket {
     public void setSeatNumber(int seatNumber) {
         this.seatNumber = seatNumber;
     }
+
+    public Date getBookedDate() {
+        return bookedDate;
+    }
+
+    public void setBookedDate(Date bookedDate) {
+        this.bookedDate = bookedDate;
+    }
+
+    public int getNumberSeat() {
+        return numberSeat;
+    }
+
+    public void setNumberSeat(int numberSeat) {
+        this.numberSeat = numberSeat;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    
 }

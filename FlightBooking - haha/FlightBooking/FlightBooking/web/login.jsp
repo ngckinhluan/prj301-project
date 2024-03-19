@@ -13,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="css/stylelog3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">"
         <title>Log</title>
     </head>
     <body>
@@ -20,7 +21,7 @@
         <div class="wrapper">
             <nav class="nav">
                 <div class="nav-logo">
-                    <img src="./images/logo.png" alt="">
+                    <a href="home"> <img src="./images/logo.png" alt=""></a>  
                 </div>
                 <div class="nav-menu" id="navMenu">
 
@@ -31,14 +32,21 @@
                 </div>
             </nav>
             <!------------------------------------FORM BOX------------------------------------------->
-            <div class="form-box">
+            <div style="color: #E83C38;
+                 font-size: 20px;
+                 margin-right: 150px;
+                 margin-left: 71px;
+                "><h1>Hello, Friend !</h1><br>
+                <h2>Welcome to Fire Airlines! 🔥 🔥 🔥</h2>
+            </div>
+            <div class="form-box" style="left: -105px;">
 
                 <!----------------------------------LOGIN------------------------------------------>
                 <div class="login-container" id="login">
                     <form action="log" method="post">
                         <div class="top">
                             <span>Don't have an account? <a href="#" onclick="register()">Sign up</a></span>
-                            <header>Log In</header>
+                            <header ><h3>Log In</h3></header>
                         </div>	
                         <div class="top" style="color: red">
                             <span>${err}</span>
@@ -76,7 +84,7 @@
                     <form action="signup" method="post">
                         <div class="top">
                             <span>Have an account? <a href="#" onclick="login()">Login</a></span>
-                            <header>SIGN UP</header>
+                            <header><h3>Sign Up</h3></header>
                         </div>
 
                         <div class="two-forms">

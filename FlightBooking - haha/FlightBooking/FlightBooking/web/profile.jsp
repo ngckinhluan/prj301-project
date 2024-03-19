@@ -32,10 +32,7 @@
 
                 <form action="profile" method="post">
                     <input type="hidden" name="username" value="${user.username}">
-                    <div class="form-group">
-                        <label for="img">IMG URL</label>
-                        <input type="url" class="form-control" id="img" name="img" value="${user.img}" onchange="previewImage(this.value)" placeholder="Enter image URL">
-                    </div>
+                    
                     <div id="imagePreview" class="mt-3"></div>
 
 

@@ -36,7 +36,7 @@ public class SubmitBookedController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -63,19 +63,25 @@ public class SubmitBookedController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
-        
+
         //check logined
-        if(user==null) {
+        if (user == null) {
             response.sendRedirect("login.jsp");
             return;
         }
-        
+
         int FlightId = Integer.parseInt(request.getParameter("id"));
         int number = Integer.parseInt(request.getParameter("number"));
         int seatId = Integer.parseInt(request.getParameter("seatNumber"));
-        Ticket ticket = new Ticket(seatId, user.getUsername(), FlightId, number, new Date(), number);
-        new TicketDAO().editTicket(ticket);
-        response.sendRedirect("booked");
+        
+        if (number <= (new TicketDAO().getTotalTicketsByFlightId1(FlightId)- new TicketDAO().getseatNumber(FlightId))) {
+            Ticket ticket = new Ticket(seatId, user.getUsername(), FlightId, number, new Date(), number);
+            new TicketDAO().editTicket(ticket);
+            request.getRequestDispatcher("booked").forward(request, response);
+        } else {
+ response.sendRedirect("home");
+        }
+
     }
 
     /**
@@ -101,5 +107,9 @@ public class SubmitBookedController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
+    
 
+    
+    
 }

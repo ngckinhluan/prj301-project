@@ -66,6 +66,10 @@
                                 <label>Booked date</label>  
                                 <input type="date" class="form-control" name="bookedDate" value="${ticket.bookedDate}" required>
                             </div>
+                            <div class="form-group">
+                                <label>Price</label>  
+                                <input type="text" class="form-control" name="price" value="${ticket.price}" required>
+                            </div>
                             
                             <div class="form-group">
                                 <label class="alert">${msg}</label>  

@@ -41,9 +41,10 @@
                             <th>ID</th>
                             <th>Seats</th>
                             <th>Departure Time</th>
-                            <th>Source</th>
+                            <th>Departure</th>
                             <th>Destination</th> 
                             <th>Arrival Time</th>
+                            <th>Price</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -58,6 +59,7 @@
                                 <td>${Flight.source}</td>
                                 <td>${Flight.destination}</td>
                                 <td>${Flight.arrivalTime}</td>
+                                <td>${Flight.price} $</td>
                                 <th><a href="./AdminFlight?action=update&id=${Flight.id}">Edit</a></th>
                                 <th><a href="./AdminFlight?action=delete&id=${Flight.id}">Delete</a></th>
                             </tr>

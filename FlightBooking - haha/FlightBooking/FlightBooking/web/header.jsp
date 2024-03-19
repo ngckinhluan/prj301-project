@@ -8,12 +8,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Navigation-->
 <div class="header">
-        <div class="img">
-            <a class="menu" aria-current="page" href="home"><img class="logo" src="./images/logo.png"></a>
+    <div class="img">  
+        <c:if test="${sessionScope.user.role == 1 ||  empty sessionScope.user}">
+            <a class="menu" aria-current="page" href="home"><img class="logo" src="./images/logo.png"></a></c:if>
+            <c:if test="${sessionScope.user.role == 0}">
+            <a class="menu" aria-current="page" href="#"><img class="logo" src="./images/logo.png"></a></c:if>
         </div>
         <div class="bar">
+                             
             <c:if test="${not empty sessionScope.user && (sessionScope.user.role==0)}">
-                <a class="menu" aria-current="page" href="home">HOME</a>    
+<!--                 <a class="menu" aria-current="page" href="home">HOME</a>  -->
                 <a class="menu" aria-current="page" href="AdminUser">USERS</a>
                 <a class="menu" aria-current="page" href="AdminFlight">FLIGHTS</a>
                 <a class="menu" aria-current="page" href="AdminTicket">TICKETS</a>
@@ -22,14 +26,15 @@
     <div class="other_func">
             <c:choose>
                     <c:when test="${not empty sessionScope.user}">
+                        <c:if test="${(sessionScope.user.role==1)}">
                         <a class="btn btn-outline-dark" href="booked">
                             <i class="bi-clock me-1"></i>
                             Booked list
                         </a>
-
+                        </c:if>
                         <a class="btn btn-outline-dark ms-3" href="profile">
                             <i class="bi-person me-1"></i>
-                            Welcome ${user.username}
+                            Welcome, ${user.username}
                         </a>
                         
                         <a class="btn btn-outline-dark ms-3" href="log">

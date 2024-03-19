@@ -36,16 +36,18 @@
                     <div class="item1">Arrive at</div>
                     <div class="item2">${Flight.arrivalTime}</div>
                     <div class="item1">Number of seats</div>
-                    <div class="item2">${seatId + 1}</div>
-                    <div class="item1">Passenger ID</div>
+                    <div class="item2">${numberTicket}</div>
+                    <div class="item1">Passenger Name</div>
                     <div class="item2">${user.fullName}</div>
                     <div class="item1">Number ticket</div>
                     <div class="item2">${numberTicket}</div>
+                     <div class="item1">Total Price</div>
+                    <div class="item2">${Flight.price * numberTicket} $</div>
                     
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px">
-                        <a class="btn-des" href="submit?id=${Flight.id}&seatNumber=${seatId + 1}&number=${numberTicket}" style="margin-right: 50px">
+                        <a class="btn-des" href="submit?id=${Flight.id}&seatNumber=${seatId + 1}&number=${numberTicket}&price=${Flight.price * numberTicket}" style="margin-right: 50px">
                             <i class="bi-box-arrow-right me-1 btn-hover" style="line-height: 2"> Submit </i>
                            
                         </a>

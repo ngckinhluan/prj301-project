@@ -70,8 +70,17 @@
                     <div class="form-group">
                         <label for="role">Role</label>
                         <select class="form-control" id="role" name="role" value="${user.role}">
-                            <option value="0">Admin</option>
-                            <option value="1">User</option>
+                            <c:choose>
+                                <c:when test="${user.role eq '0'}">
+                                    <option value="0" selected>Admin</option>
+                                    <option value="1">User</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="0">Admin</option>
+                                    <option value="1" selected>User</option>
+                                </c:otherwise>
+                            </c:choose>
+
                         </select>
                     </div>
 
@@ -83,6 +92,9 @@
                             
                         </select>
                     </div>
+
+
+                    
 
                     <button type="submit" class="btn btn-primary">Update</button>
 
